@@ -13,7 +13,7 @@ powerConsumptionShort$completedate <- as.POSIXct(completedate)
 ## Plot 3
 with(powerConsumptionShort, {
     plot(Sub_metering_1~completedate, type="l",
-         ylab="Global Active Power (kilowatts)", xlab="")
+         ylab="Energy sub metering", xlab="")
     lines(Sub_metering_2~completedate,col='Red')
     lines(Sub_metering_3~completedate,col='Blue')
 })
