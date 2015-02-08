@@ -1,4 +1,14 @@
+## Getting data
+powerConsumption <- read.csv("household_power_consumption.txt", header=T, sep=';', na.strings="?", 
+                      nrows=2075259, check.names=F, stringsAsFactors=F, comment.char="", quote='\"')
+powerConsumption$Date <- as.Date(powerConsumption$Date, format="%d/%m/%Y")
 
+## Subsetting data by date
+powerConsumptionShort <- subset(powerConsumption, subset=(Date >= "2007-02-01" & Date <= "2007-02-02"))
+
+## Format dates
+completedate <- paste(as.Date(powerConsumptionShort$Date), powerConsumptionShort$Time)
+powerConsumptionShort$completedate <- as.POSIXct(completedate)
 
 ## Plot 4
 par(mfrow=c(2,2), mar=c(4,4,2,1), oma=c(0,0,2,0))
